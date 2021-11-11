@@ -72,7 +72,7 @@ Input             |  Animated Output
 
 * Do not want to run the code? Try an App [_一刻相册_](https://photo.baidu.com/) downloaded from [here](https://photo.baidu.com/union/youa/home)!
 
-<img src="https://github.com/wzmsltw/PaintTransformer/blob/main/picture/yike.jpg" width="500px"/>
+<img src=".\picture\yike.jpg" width="500px"/>
 
 ## Citation
 

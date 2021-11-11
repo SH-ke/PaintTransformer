@@ -1,14 +1,7 @@
-import torch
-import torch.nn.functional as F
-import numpy as np
-from PIL import Image
 import network
 import os
-import math
 import render_utils
 import paddle
-import paddle.nn as nn
-import paddle.nn.functional as F
 import cv2
 import render_parallel
 import render_serial
@@ -29,7 +22,7 @@ def main(input_path, model_path, output_dir, need_animation=False, resize_h=None
     stroke_num = 8
 
     #* ----- load model ----- *#
-    paddle.set_device('gpu')
+    paddle.set_device('cpu')
     net_g = network.Painter(5, stroke_num, 256, 8, 3, 3)
     net_g.set_state_dict(paddle.load(model_path))
     net_g.eval()
@@ -62,7 +55,7 @@ def main(input_path, model_path, output_dir, need_animation=False, resize_h=None
 
 if __name__ == '__main__':
     
-    main(input_path='input/chicago.jpg',
+    main(input_path='input/bingbing.jpg',
          model_path='paint_best.pdparams',
          output_dir='output/',
          need_animation=True,  # whether need intermediate results for animation.

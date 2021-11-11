@@ -1,6 +1,5 @@
 import paddle
 import paddle.nn as nn
-import math
 
 class Painter(nn.Layer):
     """

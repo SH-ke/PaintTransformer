@@ -11,9 +11,9 @@ def main(input_path, model_path, output_dir, need_animation=False, resize_h=None
         os.mkdir(output_dir)
     input_name = os.path.basename(input_path)
     output_path = os.path.join(output_dir, input_name)
-    frame_dir = None
-    if need_animation:
-        if not serial:
+    frame_dir = None # todo gif连续图片地址？
+    if need_animation: # 生成动画，gif
+        if not serial: # 连续
             print('It must be under serial mode if animation results are required, so serial flag is set to True!')
             serial = True
         frame_dir = os.path.join(output_dir, input_name[:input_name.find('.')])
@@ -55,10 +55,18 @@ def main(input_path, model_path, output_dir, need_animation=False, resize_h=None
 
 if __name__ == '__main__':
     
-    main(input_path='input/bingbing.jpg',
+    # main(input_path='input/tian.jpg',
+    #      model_path='paint_best.pdparams',
+    #      output_dir='output/',
+    #      need_animation=True,  # whether need intermediate results for animation.
+    #      resize_h=512,         # resize original input to this size. None means do not resize.
+    #      resize_w=512,         # resize original input to this size. None means do not resize.
+    #      serial=True)          # if need animation, serial must be True.
+    
+    main(input_path='input/chicago.jpg',
          model_path='paint_best.pdparams',
-         output_dir='output/',
-         need_animation=True,  # whether need intermediate results for animation.
-         resize_h=512,         # resize original input to this size. None means do not resize.
-         resize_w=512,         # resize original input to this size. None means do not resize.
-         serial=True)          # if need animation, serial must be True.
+         output_dir='output/', 
+         resize_h=512,         
+         resize_w=512, 
+         serial=True)          
+      

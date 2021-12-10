@@ -78,8 +78,8 @@ def read_img(img_path, img_type='RGB', h=None, w=None):
     img = np.array(img)
     if img.ndim == 2:
         img = np.expand_dims(img, axis=-1)
-    img = img.transpose((2, 0, 1))
-    img = paddle.to_tensor(img).unsqueeze(0).astype('float32') / 255.
+    img = img.transpose((2, 0, 1)) # 矩阵的维度由 (X, Y, Z) -> (Z, X, Y)
+    img = paddle.to_tensor(img).unsqueeze(0).astype('float32') / 255. # 矩阵变为归一化张量
     return img
 
 def preprocess(img, w=512, h=512):
